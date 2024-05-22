@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
+import Order from './Order';
 
 const intialDishes = [
   {
@@ -33,26 +35,61 @@ const intialDishes = [
 const Menu = () => {
   const [dishes, setDishes] = useState(intialDishes);
 
+  const [order, setOrder] = useState(true);
+
+  const body = document.querySelector('body');
+
   return (
-    <div className='container bg-orange-200  min-h-[450px] w-full  dark:bg-gray-800 duration-200 '>
-      <ul className=' flex  flex-col justify-center items-center sm:flexrounded-lg '>
-        {dishes.map((menu) => (
-          <>
-            <li
-              key={menu.name}
-              className='inline-block text-center my-1 w-1/2  bg-white rounded-md hover:cursor-pointer hover:bg-slate-300'
-            >
-              <h1 className='text-2xl font-bold'>{menu.name}</h1>
-              <p> {menu.description}</p>
-              <span className='text-orange-500 text-xl font-bold'>
-                {menu.price}
-              </span>
-              <hr className='' />
-            </li>
-          </>
-        ))}
-      </ul>
-    </div>
+    <>
+      {order &&
+        createPortal(
+          <Order
+            total='450'
+            className='mx-4 bg-white border border-orange-400'
+          />,
+          body
+        )}
+      <div className='container bg-orange-200  min-h-[450px] w-full  dark:bg-gray-800 duration-200 '>
+        <ul className=' flex  flex-col justify-center items-center sm:flexrounded-lg '>
+          {dishes.map((menu) => (
+            <>
+              <li
+                key={menu.name}
+                className='my-1 w-1/2  bg-white rounded-md hover:cursor-pointer hover:bg-slate-300
+              flex  justify-between align-middle 
+
+              '
+              >
+                <div className='px-4'>
+                  <h1 className='text-2xl font-bold'>{menu.name}</h1>
+                  <p> {menu.description}</p>
+                  <span className='text-orange-500 text-xl font-bold'>
+                    {menu.price}
+                  </span>
+                </div>
+
+                <form action='' className='relative left-18 top-3 md:left-48'>
+                  <label htmlFor='Quantity' className='text-sm/[18px] mx-2'>
+                    Quantity
+                  </label>
+                  <input
+                    type='number'
+                    className='w-9 border border-gray-300 rounded-sm px-1  '
+                    defaultValue={1}
+                  />
+                  <button className='bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white rounded-full flex items-center px-4 ms-8 mt-4'>
+                    {' '}
+                    + add
+                  </button>
+                </form>
+
+                <hr className='' />
+              </li>
+            </>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

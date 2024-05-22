@@ -1,9 +1,7 @@
-const Button = ({ name, px, py, onClick }) => {
+const Button = ({ name, className, onClick }) => {
   return (
     <button
-      className={`bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-${
-        py ? py : 2
-      } px-${px ? px : 4} rounded-full flex items-center gap-3`}
+      className={`${className} bg-white bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full flex items-center gap-3 `}
       onClick={onClick}
     >
       {name}

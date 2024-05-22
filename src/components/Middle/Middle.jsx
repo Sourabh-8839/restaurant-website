@@ -6,6 +6,8 @@ import bgImg from '../../assets/website/vector3.png';
 import Button from '../Navbar/Button';
 import { useNavigate } from 'react-router-dom';
 
+import TestiMonial from '../TestiMonial/TestiMonial';
+
 const ImageList = [
   {
     id: 1,
@@ -116,6 +118,7 @@ const Middle = () => {
           </div>
         </div>
       </div>
+      <TestiMonial />
     </>
   );
 };
