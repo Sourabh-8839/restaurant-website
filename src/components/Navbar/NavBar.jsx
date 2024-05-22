@@ -2,22 +2,23 @@
 import { FaCartShopping } from 'react-icons/fa6';
 import DarkMode from './DarkMode';
 import Logo from '../../assets/website/food-logo.png';
+import { NavLink } from 'react-router-dom';
 const NavBar = () => {
   const Menu = [
     {
       id: 1,
       name: 'Home',
-      link: '/#',
+      link: '/',
     },
     {
       id: 2,
       name: 'Services',
-      link: '/#services',
+      link: '/services',
     },
     {
       id: 3,
       name: 'About',
-      link: '/#about',
+      link: '/about',
     },
   ];
   return (
@@ -38,17 +39,17 @@ const NavBar = () => {
               <ul className='hidden sm:flex items-center gap-4'>
                 {Menu.map((menu) => (
                   <li key={menu.id}>
-                    <a
-                      href={menu.link}
+                    <NavLink
+                      to={menu.link}
                       className='inline-block py-4 px-4 hover:text-yellow-500'
                     >
                       {menu.name}
-                    </a>
+                    </NavLink>
                   </li>
                 ))}
               </ul>
               <button className='bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3'>
-                Order
+                Cart
                 <FaCartShopping className='text-xl text-white drop-shadow-sm cursor-pointer' />
               </button>
             </div>

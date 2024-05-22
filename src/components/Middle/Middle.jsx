@@ -3,6 +3,8 @@ import Food1 from '../../assets/website/biryani.png';
 import Food2 from '../../assets/website/biryani5.png';
 import Food3 from '../../assets/website/biryani2.png';
 import bgImg from '../../assets/website/vector3.png';
+import Button from '../Navbar/Button';
+import { useNavigate } from 'react-router-dom';
 
 const ImageList = [
   {
@@ -31,6 +33,13 @@ const bgImage = {
 
 const Middle = () => {
   const [imageId, setImageId] = useState(Food1);
+
+  const navigate = useNavigate();
+  const OnClickHandler = () => {
+    console.log('Buuton Click');
+
+    navigate('/menu');
+  };
 
   return (
     <>
@@ -61,9 +70,15 @@ const Middle = () => {
                 reiciendis inventore iste ratione ex alias quis magni at optio
               </p>
               <div>
-                <button className='bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full'>
+                <Button
+                  name='Order Now'
+                  px='4'
+                  py='2'
+                  onClick={OnClickHandler}
+                />
+                {/* <button className='bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full'>
                   Order Now
-                </button>
+                </button> */}
               </div>
             </div>
 

@@ -3,6 +3,8 @@ import Vector from '../../assets/website/vector3.png';
 import { GrSecure } from 'react-icons/gr';
 import { IoFastFood } from 'react-icons/io5';
 import { GiFoodTruck } from 'react-icons/gi';
+import Button from '../Navbar/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Banner = () => {
   const bgImage = {
@@ -13,9 +15,20 @@ const Banner = () => {
     height: '100%',
     width: '100%',
   };
+
+  const navigate = useNavigate();
+
+  const OnClickHandler = () => {
+    console.log('Buuton Click');
+
+    navigate('/menu');
+  };
   return (
     <>
-      <div className='min-h-[550px]'>
+      <div
+        style={bgImage}
+        className='min-h-[550px] bg-gray-100 dark:bg-gray-950 dark:text-white'
+      >
         <div className='min-h-[550px] flex justify-center items-center backdrop-blur-xl py-12 sm:py-0 '>
           <div
             data-aos='slide-up'
@@ -33,9 +46,7 @@ const Banner = () => {
               </div>
               {/* text content section */}
               <div className='flex flex-col justify-center gap-6 sm:pt-0'>
-                <h1 className='text-3xl sm:text-4xl font-bold'>
-                  Lorem, ipsum dolor.
-                </h1>
+                <h1 className='text-3xl sm:text-4xl font-bold'>Biryani</h1>
                 <p className='text-sm text-gray-500 tracking-wide leading-5'>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Eaque reiciendis inventore iste ratione ex alias quis magni at
@@ -59,9 +70,12 @@ const Banner = () => {
                   </div>
                 </div>
                 <div>
-                  <button className='bg-gradient-to-r from-primary to-secondary text-white py-2 px-4 rounded-full shadow-xl hover:shadow-md'>
-                    Order Now
-                  </button>
+                  <Button
+                    name='Order Now'
+                    px='4'
+                    py='2'
+                    onClick={OnClickHandler}
+                  />
                 </div>
               </div>
             </div>

@@ -10,7 +10,7 @@ import footerLogo from '../../assets/website/food-logo.png';
 
 const Footer = () => {
   return (
-    <div className='bg-gray-100 dark:bg-gray-950'>
+    <div className='bg-gray-100 dark:bg-gray-950 dark:text-white'>
       <section className='max-w-[1200px] mx-auto'>
         <div className=' grid md:grid-cols-3 py-5'>
           <div className=' py-8 px-4 '>
@@ -60,7 +60,7 @@ const Footer = () => {
         </div>
         <div>
           <div className='text-center py-10 border-t-2 border-gray-300/50'>
-            @copyright 2024 All rights reserved || Made with ❤️ by Dilshad
+            @copyright 2024 All rights reserved
           </div>
         </div>
       </section>
