@@ -38,8 +38,6 @@ const Middle = () => {
 
   const navigate = useNavigate();
   const OnClickHandler = () => {
-    console.log('Buuton Click');
-
     navigate('/menu');
   };
 
